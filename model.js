@@ -35,8 +35,19 @@ const generateFriends = axios
     console.log(error);
   });
 
-export const getUserInfo = async () => {
-  const [userInfo, userFriends] = await Promise.all([generateUser, generateFriends]);
+const generateQuote = axios
+  .get("https://api.kanye.rest")
+  .then(({ data }) => {
+    if (!data?.quote) throw new Error("fetch quote error");
 
-  return { userInfo, userFriends };
+    return { quoteText: data?.quote, quoteBy: "Kanye West" };
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+export const getUserInfo = async () => {
+  const [userInfo, userFriends, favoriteQuote] = await Promise.all([generateUser, generateFriends, generateQuote]);
+
+  return { userInfo, userFriends, favoriteQuote };
 };
