@@ -46,8 +46,22 @@ const generateQuote = axios
     console.error(error);
   });
 
-export const getUserInfo = async () => {
-  const [userInfo, userFriends, favoriteQuote] = await Promise.all([generateUser, generateFriends, generateQuote]);
+const generatePokemon = axios
+  .get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 1025) + 1}`)
+  .then(({ data }) => {
+    if (!data) throw new Error("fetch pokemon error");
 
-  return { userInfo, userFriends, favoriteQuote };
+    return {
+      name: data.name,
+      picture: data.sprites.front_default,
+    };
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+export const getUserInfo = async () => {
+  const [userInfo, userFriends, favoriteQuote, favoritePokemon] = await Promise.all([generateUser, generateFriends, generateQuote, generatePokemon]);
+
+  return { userInfo, userFriends, favoriteQuote, favoritePokemon };
 };
