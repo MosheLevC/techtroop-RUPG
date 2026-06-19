@@ -1,3 +1,3 @@
 import { getUserInfo } from "./model.js";
 
-getUserInfo();
+console.log(await getUserInfo());
