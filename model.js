@@ -60,8 +60,25 @@ const generatePokemon = axios
     console.error(error);
   });
 
-export const getUserInfo = async () => {
-  const [userInfo, userFriends, favoriteQuote, favoritePokemon] = await Promise.all([generateUser, generateFriends, generateQuote, generatePokemon]);
+const generateBaconIpsum = axios
+  .get("https://baconipsum.com/api/?type=meat-and-filler&sentences=5&format=text")
+  .then(({ data }) => {
+    if (!data) throw new Error("fetch baconIpsum error");
 
-  return { userInfo, userFriends, favoriteQuote, favoritePokemon };
+    return data;
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+export const getUserInfo = async () => {
+  const [userInfo, userFriends, favoriteQuote, favoritePokemon, userAbout] = await Promise.all([
+    generateUser,
+    generateFriends,
+    generateQuote,
+    generatePokemon,
+    generateBaconIpsum,
+  ]);
+
+  return { userInfo, userFriends, favoriteQuote, favoritePokemon, userAbout };
 };
