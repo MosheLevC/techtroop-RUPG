@@ -17,6 +17,7 @@ const generateUser = axios
   })
   .catch((error) => {
     console.error(error);
+    return null;
   });
 
 const generateFriends = axios
@@ -32,7 +33,8 @@ const generateFriends = axios
     }));
   })
   .catch((error) => {
-    console.log(error);
+    console.error(error);
+    return null;
   });
 
 const generateQuote = axios
@@ -44,6 +46,7 @@ const generateQuote = axios
   })
   .catch((error) => {
     console.error(error);
+    return null;
   });
 
 const generatePokemon = axios
@@ -58,6 +61,7 @@ const generatePokemon = axios
   })
   .catch((error) => {
     console.error(error);
+    return null;
   });
 
 const generateBaconIpsum = axios
@@ -69,6 +73,7 @@ const generateBaconIpsum = axios
   })
   .catch((error) => {
     console.error(error);
+    return null;
   });
 
 export const getUserInfo = async () => {
