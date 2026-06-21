@@ -54,8 +54,9 @@ const generatePokemon = axios
   .then(({ data }) => {
     if (!data) throw new Error("fetch pokemon error");
 
+    const properCasePokemon = data.name.charAt(0).toUpperCase() + data.name.slice(1);
     return {
-      name: data.name,
+      name: properCasePokemon,
       picture: data.sprites.front_default,
     };
   })
