@@ -4,21 +4,143 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="controller.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f0f2f5;
+        color: #1c1e21;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        max-width: 1100px;
+        width: 100%;
+      }
+
+      header {
+        width: 100%;
+        padding: 40px;
+        border-radius: 12px;
+        min-height: 100px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .image-circle {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        overflow: hidden;
+      }
+
+      .image-circle > img {
+        width: 100%;
+      }
+
+      .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about,
+      .friends,
+      .quote,
+      .pokemon {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e4e6eb;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .generate-button,
+      .save-button,
+      .load-button {
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+      }
+
+      .generate-button {
+        background-color: #00a400;
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 164, 0, 0.2);
+      }
+
+      .generate-button:hover {
+        background-color: #008a00;
+      }
+
+      .save-button {
+        background-color: #e4e6eb;
+        color: #050505;
+        margin-top: auto;
+      }
+
+      .save-button:hover {
+        background-color: #d8dadf;
+      }
+
+      .load-button {
+        background-color: transparent;
+        border: 2px solid #1877f2;
+        color: #1877f2;
+      }
+
+      .load-button:hover {
+        background-color: #f0f7ff;
+      }
+    </style>
     <title>RUPG Project</title>
   </head>
   <body>
     <div class="container">
-      <header></header>
+      <header>
+        <div class="image-circle">
+          <img src="https://lh3.googleusercontent.com/a/AEdFTp7-apL3w2Amj-jWYTYP4fDX9wHQhsE0Q1Aqy5Ll=s96-c" alt="" />
+        </div>
+      </header>
       <div class="column">
-        <div class="about"></div>
-        <div class="friends"></div>
+        <div class="about">
+          <h2>About me</h2>
+        </div>
+        <div class="friends">
+          <h2>Friends</h2>
+        </div>
       </div>
       <div class="column">
-        <div class="quote"></div>
-        <div class="pokemon"></div>
-        <button class="save-button">Save User Page</button>
-        <button class="load-button">Load User Page</button>
-        <button class="generate-button">Generate User</button>
+        <div class="quote">
+          <h2>Favorite quote</h2>
+        </div>
+        <div class="pokemon">
+          <h2>Favorite Pokemon</h2>
+        </div>
+        <div class="buttons">
+          <button class="save-button">Save User Page</button>
+          <button class="load-button">Load User Page</button>
+          <button class="generate-button">Generate User</button>
+        </div>
       </div>
     </div>
   </body>
