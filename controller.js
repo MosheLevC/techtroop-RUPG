@@ -21,8 +21,8 @@ buttons.generate.addEventListener("click", async () => {
       showMessage("Failed to generate user profile.", "error");
     }
     buttons.generate.textContent = txt;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     showMessage("Error generating user profile.", "error");
   } finally {
     buttons.generate.disabled = false;
@@ -41,8 +41,8 @@ buttons.save.addEventListener("click", () => {
     } else {
       showMessage("Failed to save user page.", "error");
     }
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     showMessage("Failed to save user page.", "error");
   }
 });
@@ -61,8 +61,8 @@ buttons.load.addEventListener("click", () => {
     } else {
       showMessage("Failed to load user page.", "error");
     }
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     showMessage("Failed to load user page.", "error");
   }
 });
