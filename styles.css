@@ -8,31 +8,38 @@
 body {
   background-color: #f0f2f5;
   color: #1c1e21;
-  padding: 24px;
+  padding: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  max-width: 1100px;
+  gap: 12px;
+  max-width: 1000px;
   width: 100%;
 }
 
 header {
   width: 100%;
-  padding: 40px;
-  border-radius: 12px;
-  min-height: 100px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  min-height: 60px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  border: 1px solid #e4e6eb;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .image-circle {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   overflow: hidden;
 }
 
@@ -44,7 +51,7 @@ header {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .about,
@@ -52,30 +59,41 @@ header {
 .quote,
 .pokemon {
   background-color: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   border: 1px solid #e4e6eb;
 }
 
-.buttons {
+.controls-container {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-row,
+.load-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
 }
 
 .generate-button,
 .save-button,
 .load-button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 1rem;
+  height: 38px;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .generate-button {
+  flex: 1;
   background-color: #00a400;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 164, 0, 0.2);
@@ -88,7 +106,8 @@ header {
 .save-button {
   background-color: #e4e6eb;
   color: #050505;
-  margin-top: auto;
+  width: 38px;
+  flex-shrink: 0;
 }
 
 .save-button:hover {
@@ -99,6 +118,8 @@ header {
   background-color: transparent;
   border: 2px solid #1877f2;
   color: #1877f2;
+  width: 70px;
+  flex-shrink: 0;
 }
 
 .load-button:hover {
@@ -109,9 +130,8 @@ h2 {
   font-size: 1rem;
   color: #65676b;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
   border-bottom: 1px solid #e4e6eb;
 }
 
@@ -120,3 +140,139 @@ h2 {
 .load-button:active {
   transform: scale(0.98);
 }
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1c1e21;
+}
+
+.user-location {
+  font-size: 1rem;
+  color: #65676b;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #050505;
+}
+
+.friends-list {
+  list-style-type: disc;
+  margin-left: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+
+.friends-list li {
+  font-size: 0.95rem;
+  color: #1c1e21;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #050505;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.quote-author {
+  display: block;
+  font-weight: 600;
+  color: #65676b;
+  font-size: 0.95rem;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pokemon-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.pokemon-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #050505;
+}
+
+.app-message {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+.app-message.success {
+  background-color: #00a400;
+}
+
+.app-message.error {
+  background-color: #f02849;
+}
+
+.app-message.fade-out {
+  opacity: 0;
+}
+
+.user-select {
+  flex: 1;
+  height: 38px;
+  padding: 0 32px 0 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #e4e6eb;
+  background-color: #ffffff;
+  color: #1c1e21;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.user-select:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.15);
+}
+
+.user-select:disabled {
+  background-color: #f0f2f5;
+  color: #bcc0c4;
+  cursor: not-allowed;
+}
+
+.placeholder-text {
+  color: #8a8d91;
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
